@@ -22,8 +22,8 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-//    public Task createTask() {
-//        return taskRepository.
-//    }
+    public Task createTask(CreateTaskDto createTaskDto) {
+        return taskRepository.save(createTaskDto.toEntity());
+    }
 
 }
