@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import luminar.ru.codexrace.tag.Tag;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -40,11 +41,11 @@ public class Task {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "task_tags",
-//            joinColumns = @JoinColumn(name = "task_id"),
-//            inverseJoinColumns = @JoinColumn(name = "tag_id")
-//    )
-//    private Set<Tag> tags = new HashSet<>();
+    @ManyToMany
+    @JoinTable(
+            name = "task_tags",
+            joinColumns = @JoinColumn(name = "task_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private Set<Tag> tags = new HashSet<>();
 }
